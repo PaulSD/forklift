@@ -191,7 +191,7 @@ changing the hostnames as needed
 * setup 99-local.yaml
 
 ```yaml
-capsule-dev:
+capsule-devel:
   box: centos7
   ansible:
     playbook: 'playbooks/foreman_proxy_content_dev.yml'
@@ -200,7 +200,7 @@ capsule-dev:
 ```
 * ```vagrant up foo```
 * ssh into foo and ```rails s```
-* ```vagrant up capsule-dev```
+* ```vagrant up capsule-devel```
 
 
 ### To setup a capsule with an existing development environment
@@ -213,7 +213,7 @@ capsule-dev:
 * Add a box for a capsule, using the katello server's name in the "server" field:
 
 ```yaml
-capsule-dev:
+capsule-devel:
   box: centos7
   ansible:
     playbook: 'playbooks/foreman_proxy_content_dev.yml'
@@ -221,7 +221,7 @@ capsule-dev:
     server: 'your-katello-server-name'
 ```
 * ssh into existing development server and ```rails s```
-* spin up new capsule ```vagrant up capsule-dev```
+* spin up new capsule ```vagrant up capsule-devel```
 
 ## Client Development
 

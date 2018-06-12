@@ -95,7 +95,7 @@ module Forklift
     end
 
     def create_domain(box)
-      box['domain'] || @settings['domain'] || "#{`hostname -s`.strip}.example.com"
+      box['domain'] || @settings['domain'] || "#{`hostname -s`.strip.downcase}.example.com"
     end
 
     def configure_nfs(config, box)
@@ -242,6 +242,7 @@ module Forklift
         elsif box.fetch('name').to_s.include?('devel')
           override.vm.network :forwarded_port, guest: 3000, host: 3330
           override.vm.network :forwarded_port, guest: 443, host: 4430
+          override.vm.network :forwarded_port, guest: 9090, host: 9090
         else
           override.vm.network :forwarded_port, guest: 80, host: 8080
           override.vm.network :forwarded_port, guest: 443, host: 4433
